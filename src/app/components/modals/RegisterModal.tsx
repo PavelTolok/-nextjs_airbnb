@@ -16,7 +16,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 import Modal from "./Modal";
-import Input from "../inputs/Input";
+import Input from "@/app/components/inputs/Inputs";
 import Heading from "../Heading";
 import Button from "../Button";
 
@@ -91,7 +91,7 @@ const RegisterModal= () => {
         register={register}
         errors={errors}
         required
-      />
+      /> 
     </div>
   )
 

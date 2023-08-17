@@ -5,8 +5,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 // import { signOut } from "next-auth/react";
 // import { useRouter } from "next/navigation";
 
-// import useLoginModal from "@/app/hooks/useLoginModal";
-// import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 // import useRentModal from "@/app/hooks/useRentModal";
 // import { SafeUser } from "@/app/types";
 
@@ -23,8 +23,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
 }) => {
 //   const router = useRouter();
 
-//   const loginModal = useLoginModal();
-//   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
 //   const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +81,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
+            {/* <Avatar src={currentUser?.image} /> */}
           </div>
         </div>
       </div>
@@ -103,7 +103,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem 
+
+              <div>fedwfew</div>
+                {/* <MenuItem 
                   label="My trips" 
                 //   onClick={() => router.push('/trips')}
                 />
@@ -127,17 +129,17 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 <MenuItem 
                   label="Logout" 
                 //   onClick={() => signOut()}
-                />
+                /> */}
               </>
             ) : (
               <>
                 <MenuItem 
                   label="Login" 
-                //   onClick={loginModal.onOpen}
+                  onClick={loginModal.onOpen}
                 />
                 <MenuItem 
                   label="Sign up" 
-                //   onClick={registerModal.onOpen}
+                  onClick={registerModal.onOpen}
                 />
               </>
             )}

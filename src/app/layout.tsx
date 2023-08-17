@@ -3,9 +3,8 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import Navbar from './components/navbar'
 import ClientOnly from './components/ClientOnly'
-import Modal from './components/modals/Modal'
-
-import useRegisterModal from './hooks/useRegisterModal'
+import RegisterModal from './components/modals/RegisterModal'
+import ToasterProvider from './providers/ToasterProvider'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -23,11 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
-          <Navbar/>
-      
-          {/* <Modal
-            isOpen={true}
-            /> */}
+        <ToasterProvider/>
+        <RegisterModal />
+        <Navbar/>
         </ClientOnly>
         {children}
       </body>
